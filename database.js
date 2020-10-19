@@ -5,9 +5,13 @@ function save (fileName,data) {
     //console.log(data);
 } 
 
-const load=function(fileName, callback){
-    fs.readFile(fileName,'utf8', (file)=>{
-        callback(JSON.parse(file));
+const load=function(fileName, callbackFunction){
+    fs.readFile(fileName,'utf8', (err,file)=>{
+        if(err){
+            callbackFunction(err);
+            return;
+        }
+        callbackFunction(null,JSON.parse(file));
     });
 }
 

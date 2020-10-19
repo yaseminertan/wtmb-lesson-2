@@ -19,8 +19,8 @@ Database.load('meetup.js',(err,data)=>{
 })
 console.log(data.name);
 
-const loadedMeetup= Meetup.create(data);            //new Meetup (data.name,data.attendees);
-
+const loadedMeetup= Meetup.create({name=''});            //new Meetup (data.name,data.attendees); 
+// data would not be loaded, it will crash
 const ulas=new Person('Ulaş',11);
 ulas.attend(loadedMeetup);
 wtmb.printAttendeesNames();
