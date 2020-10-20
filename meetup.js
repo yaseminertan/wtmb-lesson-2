@@ -8,7 +8,7 @@ module.exports=class Meetup
     printAttendeesNames(){
         this.attendees.forEach(printName);
     }
-    static create({name,attendees}){
+    static create({name,attendees=[]}){
         return new Meetup(name,attendees);
     }
 }

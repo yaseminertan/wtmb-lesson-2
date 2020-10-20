@@ -1,18 +1,10 @@
-const fs=require('fs');  // filesystem, class of node
-
-function save (fileName,data) {
-    fs.writeFile(fileName, JSON.stringify(data));
-    //console.log(data);
-} 
-
-const load=function(fileName, callbackFunction){
-    fs.readFile(fileName,'utf8', (err,file)=>{
-        if(err){
-            callbackFunction(err);
-            return;
-        }
-        callbackFunction(null,JSON.parse(file));
-    });
+const fs = require('fs')
+module.exports = {
+    save(target,data) {
+        fs.writeFileSync(target,(data))
+        console.log(data)
+    },
+    load(source) {
+        return JSON.parse(fs.readFileSync(source))
+    }
 }
-
-module.exports={save,load};

@@ -11,18 +11,18 @@ const wtmb=new Meetup('WTM Berlin');
 yasemin.attend(wtmb);
 wtmb.printAttendeesNames();
 
-//Database.save('meetup.json',wtmb);
-
+Database.save('person.json', JSON.stringify(yasemin));
+const ulas=new Person('Ulaş',11);
+//Database.save('person.json', JSON.stringify(ulas));
 //const data=Database.load('meetup.json');
 Database.load('meetup.js',(err,data)=>{
-
+console.log(err,data.name);
 })
-console.log(data.name);
 
-const loadedMeetup= Meetup.create({name=''});            //new Meetup (data.name,data.attendees); 
+
+const loadedMeetup= Meetup.create({name:'aa'});            //new Meetup (data.name,data.attendees); 
 // data would not be loaded, it will crash
-const ulas=new Person('Ulaş',11);
+
 ulas.attend(loadedMeetup);
 wtmb.printAttendeesNames();
 console.log(loadedMeetup.attendees);
-//Database.save('person.json',yasemin);
