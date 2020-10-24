@@ -7,8 +7,8 @@ module.exports = class Person {
     }
 
     attend(meetup) {
-        this.meetups.push(meetup)
-        meetup.attendees.push(this)
+        this.meetups.push(meetup.name)
+        meetup.attendees.push(JSON.stringify(this))
     }
 
     static create({ name, age, meetups, id }) {
